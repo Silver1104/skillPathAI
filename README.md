@@ -40,8 +40,7 @@ This web application allows users to search for learning resources on specific t
    npx convex dev
    npx @convex/auth
    npm run deploy
-
-
+   
 Note:
 Set up all dependencies and API Keys on convex auth and vercel app and .env.local
 For SITE_URL, localhost:PORT for local development or use deployment URL (Vercel, etc)
