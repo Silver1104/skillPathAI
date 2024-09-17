@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# ConvexAuth Web-App - SkillPath.AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This web application allows users to search for learning resources on specific topics. Users can search for courses, YouTube videos, and Google Books related to a particular subject. Authentication is handled using ConvexAuth, ensuring that users can securely log in and access the platform.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication:** Secure login and registration using ConvexAuth.
+- **Course Search:** Search for relevant courses on Coursera.
+- **YouTube Videos:** Get a list of YouTube videos based on the search query.
+- **Google Books:** Find books related to the search topic using the Google Books API.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend:** React, TypeScript, CSS
+- **Backend:** Node.js, Express (ConvexAPI for course searches)
+- **Authentication:** ConvexAuth
+- **APIs:** 
+  - Coursera
+  - YouTube Data API v3
+  - Google Books API
+- **Hosting:** Vercel
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Prerequisites
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Node.js and npm installed
+- A ConvexAuth account set up with your API keys
+- API keys for YouTube and Google Books
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/skillpathAI.git
+   cd skillpathAI
+   npm install
+   npx convex dev
+   npx @convex/auth
+
+   set up all dependencies and API Keys on convex auth and vercel app and .env.local
+
+   npm run deploy
+
+   Note: for SITE_URL, localhost:PORT for local development or use deployment URL (Vercel, etc)
+
+### For detailed instructions on Convex setup, visit https://docs.convex.dev/home
