@@ -25,13 +25,7 @@ const History: React.FC = () => {
   }, [history]);
 
   // Handle viewing an item (example function)
-  const handleViewItem = (item: HistoryItem) => {
-    setHistory(prevHistory => {
-      const updatedHistory = [...prevHistory, item];
-      localStorage.setItem('userHistory', JSON.stringify(updatedHistory));
-      return updatedHistory;
-    });
-  };
+
 
   return (
     <div className="history">
