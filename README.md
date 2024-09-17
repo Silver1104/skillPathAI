@@ -13,7 +13,7 @@ This web application allows users to search for learning resources on specific t
 ## Technologies Used
 
 - **Frontend:** React, TypeScript, CSS
-- **Backend:** Node.js, Express (ConvexAPI for course searches)
+- **Backend:** Node.js, Express (ConvexAPI)
 - **Authentication:** ConvexAuth
 - **APIs:** 
   - Coursera
