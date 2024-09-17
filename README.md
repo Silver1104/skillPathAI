@@ -44,6 +44,7 @@ This web application allows users to search for learning resources on specific t
 ## Note:
 
 Relevant and necessary API Keys. SITE_URL will vary depending on on localhost or is deployed:
+
 ![Screenshot (621)](https://github.com/user-attachments/assets/547e78e3-5225-4bea-948d-81c265fa9555)
 
 
