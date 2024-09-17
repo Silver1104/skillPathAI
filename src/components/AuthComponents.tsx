@@ -48,5 +48,5 @@ export const SignInWithEmail: React.FC = () => {
 
 export const SignOut: React.FC = () => {
   const { signOut } = useAuthActions();
-  return <Button onClick={() => void signOut()}>Sign out</Button>;
+  return <Button className='signoutbtn' onClick={() => void signOut()}>Sign out</Button>;
 };

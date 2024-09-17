@@ -1,39 +1,174 @@
-/* Dashboard.css */
+*{
+  font-family: Manrope;
+}
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #ffffff;
-  }
-  
-  .dashboard-content {
-    padding: 20px;
-    flex: 1;
-  }
-  
-  .dashboard-content h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .dashboard-content p {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  /* Add some padding around the main content */
-  .dashboard-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Footer for the dashboard (if needed) */
-  .dashboard-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #343a40;
-    color: white;
-    font-size: 0.9rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex: 1;
+  padding-left: 12%;
+  padding-right: 12%;
+  background-color: #121A21;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: left;
+  color: white;
+}
+
+.dashboard-content p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+/* .dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+} */
+
+.dashboard-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #343a40;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.course-search-form {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: rgb(18, 26, 33);
+}
+
+.course-search-input {
+  text-align: center;
+  padding: 20px 10px 20px 10px;
+  flex-grow: 1;
+  border-radius: 12px;
+  background-color: #263845;
+  border: none;
+  /* width: 150%; */
+  color: white;
+  /* margin-right: 10px; */
+}
+
+.course-search-button {
+  padding: 15px ;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  /* border: 1px solid white; */
+  /* width: 150%; */
+  color: grey;
+  background-color:#263845;
+}
+.course-search-button:hover{
+  background-color: #21272c;
+  transition: background-color 0.3s ease-in-out ;
+}
+
+.resources-results {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.courses-section, .books-section {
+  padding: 16px;
+}
+
+.course-results, .book-results {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 20px;
+}
+
+.course-card, .book-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #364F63;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #1C2633;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.course-card:hover, .book-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.course-card h3, .book-card h3 {
+  margin-top: 0;
+}
+
+.youtube-section {
+  margin-bottom: 20px;
+  padding-left: 16px;
+}
+
+.youtube-video-card {
+  background-color: #2c2f33;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+}
+
+.youtube-videos{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 15px;
+}
+
+.youtube-video{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube-thumbnail {
+  width: 100%;
+  height: auto;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: 2px solid #343a40;
+}
+
+.youtube-video-card p {
+  margin: 10px 0;
+  color: white;
+}
+
+
+.view-more-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #263845;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer
+}
+
+.view-more-button:hover{
+  background-color: #21272c;
+  transition: background-color 0.3s ease-in-out ;
+}

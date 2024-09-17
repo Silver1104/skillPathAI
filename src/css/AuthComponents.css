@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #f4f4f9 0%, #e0e0e0 100%); /* Gradient background */
+  background: linear-gradient(135deg, #f4f4f9 0%, #e0e0e0 100%);
   color: #333; /* Dark text color */
   padding: 40px;
 }
@@ -25,6 +25,7 @@ h2 {
   display: flex;
   gap: 16px; /* Space between logos */
   align-items: center; /* Center logos vertically */
+  margin-bottom: 20px;
 }
 
 /* Style for Auth Logos */
@@ -108,4 +109,8 @@ button.sign-out {
 
 button.sign-out:hover {
   background-color: #c82333; /* Darker shade on hover */
+}
+
+.signoutbtn{
+  border: 1px solid white;
 }
