@@ -1,0 +1,111 @@
+/* src/css/AuthComponents.css */
+
+/* General Container Styles */
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f4f4f9 0%, #e0e0e0 100%); /* Gradient background */
+  color: #333; /* Dark text color */
+  padding: 40px;
+}
+
+h2 {
+  color: #333; /* Dark text color */
+  margin-bottom: 20px;
+  font-size: 28px; /* Slightly larger font size */
+  font-weight: 700; /* Bold font weight */
+  text-align: center; /* Centered text */
+}
+
+/* Container for Auth Buttons */
+.auth-buttons-container {
+  display: flex;
+  gap: 16px; /* Space between logos */
+  align-items: center; /* Center logos vertically */
+}
+
+/* Style for Auth Logos */
+.auth-google-logo {
+  width: 48px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Indicate that the image is clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Transition for animation */
+}
+
+.auth-github-logo {
+  width: 45px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Indicate that the image is clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Transition for animation */
+}
+
+.auth-google-logo:hover {
+  transform: scale(1.1) rotate(10deg); /* Slight zoom and rotation effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect on hover */
+  opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+.auth-github-logo:hover {
+  transform: scale(1.1) rotate(10deg); /* Slight zoom and rotation effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect on hover */
+  opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff; /* White background for the form */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Max width for better readability on larger screens */
+}
+
+/* Input Styles */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd; /* Light border color */
+  border-radius: 4px;
+  background-color: #fafafa; /* Light background for inputs */
+  color: #333; /* Dark text color */
+  font-size: 16px;
+}
+
+/* Add padding above the email input */
+input[name="email"] {
+  margin-top: 20px; /* Adjust spacing above the email input */
+}
+
+/* Button Styles */
+button {
+  background-color: #007bff; /* Primary button color */
+  color: #ffffff; /* Button text color */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button SignOut Specific Styles */
+button.sign-out {
+  background-color: #dc3545; /* Sign out button color */
+}
+
+button.sign-out:hover {
+  background-color: #c82333; /* Darker shade on hover */
+}
