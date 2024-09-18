@@ -1,6 +1,11 @@
-*{
-  font-family: Manrope;
+/* Add a global box-sizing rule to ensure consistent sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Base styles */
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -13,8 +18,8 @@
   flex-direction: column;
   padding: 20px;
   flex: 1;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 5%;
+  padding-right: 5%;
   background-color: #121A21;
   align-items: center;
   justify-content: center;
@@ -32,111 +37,85 @@
   color: #ffffff;
 }
 
-/* .dashboard-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-} */
-
-.dashboard-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #343a40;
-  color: white;
-  font-size: 0.9rem;
-}
-
 .course-search-form {
   display: flex;
+  flex-wrap: wrap; /* Allow elements to wrap */
+  gap: 10px; /* Add gap between elements */
   margin-bottom: 20px;
   background-color: rgb(18, 26, 33);
 }
 
 .course-search-input {
-  text-align: center;
-  padding: 20px 10px 20px 10px;
-  flex-grow: 1;
+  flex: 1; /* Take available space */
+  padding: 10px;
   border-radius: 12px;
   background-color: #263845;
   border: none;
-  /* width: 150%; */
   color: white;
-  /* margin-right: 10px; */
 }
 
 .course-search-button {
-  padding: 15px ;
-  color: white;
+  padding: 10px 20px;
+  color: grey;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  /* border: 1px solid white; */
-  /* width: 150%; */
-  color: grey;
-  background-color:#263845;
+  background-color: #263845;
 }
-.course-search-button:hover{
+
+.course-search-button:hover {
   background-color: #21272c;
-  transition: background-color 0.3s ease-in-out ;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .resources-results {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add gap between sections */
+  width: 100%;
 }
 
-.courses-section, .books-section {
+.courses-section,
+.books-section,
+.youtube-section {
+  width: 100%; /* Ensure sections take full width */
   padding: 16px;
 }
 
-.course-results, .book-results {
+/* Responsive grid for course and book results */
+.course-results,
+.book-results {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
   gap: 20px;
 }
 
-.course-card, .book-card {
+.course-card,
+.book-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid #364F63;
+  border: 1px solid #364f63;
   border-radius: 8px;
   padding: 16px;
-  background-color: #1C2633;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #1c2633;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
   align-items: center;
   justify-content: space-between;
-
 }
 
-.course-card:hover, .book-card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.course-card:hover,
+.book-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.course-card h3, .book-card h3 {
-  margin-top: 0;
-}
-
-.youtube-section {
-  margin-bottom: 20px;
-  padding-left: 16px;
-}
-
-.youtube-video-card {
-  background-color: #2c2f33;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 250px;
-  text-align: center;
-}
-
-.youtube-videos{
+.youtube-videos {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
   gap: 15px;
 }
 
-.youtube-video{
+.youtube-video {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,18 +125,12 @@
 .youtube-thumbnail {
   width: 100%;
   height: auto;
-  width: 350px;
   object-fit: cover;
   border-radius: 25px;
   border: 2px solid #343a40;
 }
 
-.youtube-video-card p {
-  margin: 10px 0;
-  color: white;
-}
-
-
+/* View more button */
 .view-more-button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -165,10 +138,28 @@
   color: white;
   border: none;
   border-radius: 5px;
-  cursor: pointer
+  cursor: pointer;
 }
 
-.view-more-button:hover{
+.view-more-button:hover {
   background-color: #21272c;
-  transition: background-color 0.3s ease-in-out ;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .course-search-form {
+    flex-direction: column; /* Stack search form on small screens */
+  }
+
+  .course-search-input,
+  .course-search-button {
+    width: 100%; /* Full width for search input and button */
+    margin-bottom: 10px; /* Add space between elements */
+  }
 }
