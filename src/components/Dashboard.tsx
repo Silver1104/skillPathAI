@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "./Navbar";
 import "../css/Dashboard.css";
 import axios from "axios";
 import CourseCard from "./CourseCard";
 import BookCard from "./BookCard"; // Import the BookCard component
 import Footer from "./Footer";
+import _ from "lodash";
 
 interface DashboardProps {
   username: string;
@@ -49,62 +50,46 @@ const Dashboard: React.FC<DashboardProps> = ({ username }) => {
   const searchResources = async (query: string) => {
     setLoading(true);
     try {
-      // Fetch courses from your backend
-      const coursesResponse = await axios.post(
-        "https://convex-api.onrender.com/search",
-        {
-          search: query,
-        }
-      );
-      console.log("Fetched Courses:", coursesResponse.data);
-      setCourses(coursesResponse.data); // Set courses data
-
-      // Fetch books from Google Books API
-      const booksResponse = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes",
-        {
-          params: { q: query },
-        }
-      );
-      console.log("Fetched Books:", booksResponse.data.items);
-      setBooks(booksResponse.data.items); // Set books data
-
-      // Fetch YouTube videos
-      const youtubeApiKey = import.meta.env.VITE_APP_ID; // Replace with your YouTube API key
-      const youtubeResponse = await axios.get(
-        "https://www.googleapis.com/youtube/v3/search",
-        {
-          params: {
-            part: "snippet",
-            q: query,
-            key: youtubeApiKey,
-            maxResults: 4,
-            type: "video",
-          },
-        }
-      );
-      const videoData: YouTubeVideo[] = youtubeResponse.data.items.map(
-        (item: any) => ({
+      const coursesRequest = axios.post("https://convex-api.onrender.com/search", { search: query });
+      const booksRequest = axios.get("https://www.googleapis.com/books/v1/volumes", { params: { q: query } });
+      const youtubeRequest = axios.get("https://www.googleapis.com/youtube/v3/search", {
+        params: {
+          part: "snippet",
+          q: query,
+          key: import.meta.env.VITE_APP_ID,
+          maxResults: 4,
+          type: "video",
+        },
+      });
+      // Execute all requests in parallel
+      const [coursesResponse, booksResponse, youtubeResponse] = await Promise.all([coursesRequest, booksRequest, youtubeRequest]);
+  
+      setCourses(coursesResponse.data);
+      setBooks(booksResponse.data.items);
+      setVideos(
+        youtubeResponse.data.items.map((item: any) => ({
           id: item.id.videoId,
           title: item.snippet.title,
           thumbnail: item.snippet.thumbnails.high.url,
           link: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-        })
+        }))
       );
-      console.log("Fetched YouTube Videos:", videoData);
-      setVideos(videoData); // Set YouTube videos data
     } catch (error) {
       console.error("Error Fetching Resources:", error);
     } finally {
-      setLoading(false); // Set loading to false when both requests are done
+      setLoading(false);
     }
   };
 
+  const debouncedSearchResources = useCallback(
+    _.debounce((query: string) => searchResources(query), 300),
+    []
+  );
   // Form submission handler
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      searchResources(searchQuery);
+      debouncedSearchResources(searchQuery);
       setHasSearched(true); // Set hasSearched to true when a search is performed
     }
   };
@@ -122,6 +107,7 @@ const Dashboard: React.FC<DashboardProps> = ({ username }) => {
   // Limit the number of courses and books displayed to the visible count
   const limitedCourses = courses.slice(0, visibleCoursesCount);
   const limitedBooks = books.slice(0, visibleBooksCount);
+
 
   return (
     <div className="dashboard">
